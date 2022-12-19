@@ -9,12 +9,12 @@ API_YamDB is a platform for film and literature lovers.
 To run this project, you will need to add the following environment variables to your .env file
 
 ```bash
-DB_ENGINE=django.db.backends.postgresql # указываем, что работаем с postgresql
-DB_NAME=postgres_db # имя базы данных
-POSTGRES_USER=postgres_user # логин для подключения к базе данных
-POSTGRES_PASSWORD=postgres_password # пароль для подключения к БД (установите свой)
-DB_HOST=db # название сервиса (контейнера)
-DB_PORT=5432 # порт для подключения к БД 
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres_db
+POSTGRES_USER=postgres_user
+POSTGRES_PASSWORD=postgres_password
+DB_HOST=db
+DB_PORT=5432
 ```
 
 ## Run Locally
@@ -34,10 +34,10 @@ Go to the '/infra/' in the project directory
 Run commands
 
 ```bash
-  docker-compose up -d --build
-  docker-compose exec web python manage.py migrate
-  docker-compose exec web python manage.py createsuperuser
-  docker-compose exec web python manage.py collectstatic --no-input
+  sudo docker-compose up -d --build
+  sudo docker-compose exec web python manage.py migrate
+  sudo docker-compose exec web python manage.py createsuperuser
+  sudo docker-compose exec web python manage.py collectstatic --no-input
 ```
 
 Go to the http://localhost/admin/ 
@@ -45,7 +45,7 @@ Go to the http://localhost/admin/
 Enter into the database
 
 ```bash
-  sudo docker-compose exec web python manage.py import_csv
+  sudo docker-compose exec web python manage.py loaddata fixtures.json
 ```
 ## Request examples
 ### Getting a list of all titles
